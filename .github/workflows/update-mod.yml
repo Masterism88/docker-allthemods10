@@ -22,7 +22,7 @@ jobs:
         run: |
           echo '{"type": "module"}' > package.json  # Add "type": "module"
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm install curseforge-api node-fetch
 
       - name: Fetch latest server files
