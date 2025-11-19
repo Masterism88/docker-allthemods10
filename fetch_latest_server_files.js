@@ -4,7 +4,7 @@ import { existsSync, createWriteStream, createReadStream } from 'fs';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import fetch from 'node-fetch';
-import * as CF_API from 'curseforge-api';
+import { CurseForgeClient } from 'curseforge-api';
 import * as unzipper from 'unzipper';
 
 // --- CONFIGURATION: REPLACE THESE VALUES ---
@@ -26,7 +26,7 @@ if (!CURSEFORGE_API_KEY) {
   process.exit(1);
 }
 
-const api = new CF_API.CurseForge(CURSEFORGE_API_KEY);
+const api = new CurseForgeClient(CURSEFORGE_API_KEY);
 const TEMP_DIR = './temp_server_files';
 const SERVER_FILE_NAME = 'server-files.zip';
 const LAUNCH_SH_PATH = 'launch.sh';
