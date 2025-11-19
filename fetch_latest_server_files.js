@@ -15,8 +15,8 @@ const MINECRAFT_VERSION = '1.21.1'; // Example: The target Minecraft version for
 // ------------------------------------------
 
 // Recreate 'require' for compatibility with unzipper
-const require = createRequire(import.meta.url);
-const unzipper = require('unzipper');
+//const require = createRequire(import.meta.url);
+//const unzipper = require('unzipper');
 
 // Use environment variable for API Key
 const CURSEFORGE_API_KEY = process.env.CURSEFORGE_API_KEY;
