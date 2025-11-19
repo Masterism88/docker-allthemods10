@@ -4,7 +4,7 @@ import { existsSync, createWriteStream, createReadStream } from 'fs';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import fetch from 'node-fetch';
-import { CurseForge } from 'curseforge-api';
+import CurseForge from 'curseforge-api';
 import unzipper from 'unzipper';
 
 // --- CONFIGURATION: REPLACE THESE VALUES ---
