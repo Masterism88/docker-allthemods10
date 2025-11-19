@@ -11,7 +11,7 @@ import * as unzipper from 'unzipper';
 // You need to find your modpack ID on CurseForge. It's in the URL:
 // https://www.curseforge.com/minecraft/modpacks/YOUR-MODPACK-SLUG/files/all?filter-game-version=1_20_1
 const MODPACK_ID = 925200; // Example: ID for "All The Mods 8 - ATM8"
-const MINECRAFT_VERSION = '1.21.1'; // Example: The target Minecraft version for the server files
+const MINECRAFT_VERSION = '1.21'; // Example: The target Minecraft version for the server files
 // ------------------------------------------
 
 // Recreate 'require' for compatibility with unzipper
