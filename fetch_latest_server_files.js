@@ -55,7 +55,15 @@ async function findLatestServerFile() {
 
     // Find the latest file that is marked as a 'Server Pack' and matches the game version
     const serverFile = files
-        .filter(file => file.serverPackFileId && file.gameVersion.includes(MINECRAFT_VERSION))
+        .filter(file => {
+            // --- THE FIX: Check for the existence of the property first ---
+            if (!file.gameVersion) {
+                return false; // Skip this file if gameVersion is undefined
+            }
+            
+            // Now safely check for server pack and game version inclusion
+            return file.serverPackFileId && file.gameVersion.includes(MINECRAFT_VERSION);
+        })
         .sort((a, b) => new Date(b.fileDate) - new Date(a.fileDate))[0];
 
     if (!serverFile) {
