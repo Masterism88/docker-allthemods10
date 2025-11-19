@@ -26,7 +26,10 @@ if (!CURSEFORGE_API_KEY) {
   process.exit(1);
 }
 
-const api = new CurseForgeClient(CURSEFORGE_API_KEY);
+const api = new CurseForgeClient({
+    apiKey: CURSEFORGE_API_KEY,
+    fetch: fetch // Uses the 'fetch' function imported from 'node-fetch'
+});
 const TEMP_DIR = './temp_server_files';
 const SERVER_FILE_NAME = 'server-files.zip';
 const LAUNCH_SH_PATH = 'launch.sh';
