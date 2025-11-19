@@ -43,7 +43,15 @@ async function findLatestServerFile() {
     console.log(`Searching for latest server file for Modpack ID ${MODPACK_ID} on Minecraft ${MINECRAFT_VERSION}...`);
     
     // Get all files for the modpack
-    const files = await api.getModFiles(MODPACK_ID);
+    const response = await api.getModFiles(MODPACK_ID);
+    
+    // Access the files array from the 'data' property of the response object (The fix)
+    const files = response.data; 
+
+    // CHECK: Ensure 'files' is an array before attempting to use filter()
+    if (!Array.isArray(files)) {
+        throw new Error(`CurseForge API response did not contain an array of files in the 'data' property. Received type: ${typeof files}`);
+    }
 
     // Find the latest file that is marked as a 'Server Pack' and matches the game version
     const serverFile = files
